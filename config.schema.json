@@ -134,57 +134,9 @@
                   ]
                 },
                 {
-                  "title": "Water Flow Problem Sensor",
-                  "enum": [
-                    "Water Flow Problem Sensor"
-                  ]
-                },
-                {
-                  "title": "Hold Switch",
-                  "enum": [
-                    "Hold Switch"
-                  ]
-                },
-                {
-                  "title": "Spa Settings",
-                  "enum": [
-                    "Spa Settings"
-                  ]
-                },
-                {
-                  "title": "Spa Panel",
-                  "enum": [
-                    "Spa Panel"
-                  ]
-                },
-                {
                   "title": "Spa Heat Mode Ready",
                   "enum": [
                     "Spa Heat Mode Ready"
-                  ]
-                },
-                {
-                  "title": "Blower",
-                  "enum": [
-                    "Blower"
-                  ]
-                },
-                {
-                  "title": "Mister",
-                  "enum": [
-                    "Mister"
-                  ]
-                },
-                {
-                  "title": "Aux 1",
-                  "enum": [
-                    "Aux 1"
-                  ]
-                },
-                {
-                  "title": "Aux 2",
-                  "enum": [
-                    "Aux 2"
                   ]
                 },
                 {
