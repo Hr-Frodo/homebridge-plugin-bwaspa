@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.2.4 (xx.12.2021)
+- integrate control my spa cloud
+
 ## 2.2.3 (14.06.2021)
 - Merge branch resolving security issue in a dependency (normalize-url)
 

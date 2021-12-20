@@ -6,14 +6,8 @@ import { PumpAccessory } from './pumpAccessory';
 import { LightsAccessory } from './lightsAccessory';
 import { TemperatureAccessory } from './temperatureAccessory';
 import { ThermostatAccessory } from './thermostatAccessory';
-import { WaterFlowProblemAccessory } from './waterFlowProblemAccessory';
-import { HoldSwitchAccessory } from './holdSwitchAccessory';
-import { LockAccessory } from './lockAccessory';
 import { HeatingReadySwitchAccessory } from './heatingReadySwitchAccessory';
-import { BlowerAccessory } from './blowerAccessory';
-import { OtherAccessory } from './otherAccessory';
 import { SpaClient } from './spaClient';
-import { discoverSpas } from './discovery';
 
 /**
  * SpaHomebridgePlatform
@@ -60,14 +54,6 @@ export class SpaHomebridgePlatform implements DynamicPlatformPlugin {
       this.discoverDevices();
     });
 
-    if (config.host && config.host.length > 0) {
-      // The user provided the IP address in the config
-      this.haveAddressOfSpa(config.devMode, config.host);
-    } else {
-      // We'll go out and find it automatically
-      discoverSpas(log, this.haveAddressOfSpa.bind(this, config.devMode));
-    }
-    
     this.api.on(APIEvent.SHUTDOWN, () => {
       log.debug('Closing down homebridge - closing our connection to the Spa...');
       if (this.spa) {
@@ -298,40 +284,8 @@ export class SpaHomebridgePlatform implements DynamicPlatformPlugin {
         this.deviceObjects.push(new ThermostatAccessory(this, accessory));
         break;
       }
-      case "Water Flow Problem Sensor": {
-        this.deviceObjects.push(new WaterFlowProblemAccessory(this, accessory));
-        break;
-      }
-      case "Hold Switch": {
-        this.deviceObjects.push(new HoldSwitchAccessory(this, accessory));
-        break;
-      }
-      case "Spa Settings": {
-        this.deviceObjects.push(new LockAccessory(this, accessory, false));
-        break;
-      }
-      case "Spa Panel": {
-        this.deviceObjects.push(new LockAccessory(this, accessory, true));
-        break;
-      }
       case "Spa Heat Mode Ready": {
         this.deviceObjects.push(new HeatingReadySwitchAccessory(this, accessory));
-        break;
-      }
-      case "Blower": {
-        this.deviceObjects.push(new BlowerAccessory(this, accessory));
-        break;
-      }
-      case "Mister": {
-        this.deviceObjects.push(new OtherAccessory(this, accessory, 0));
-        break;
-      }
-      case "Aux 1": {
-        this.deviceObjects.push(new OtherAccessory(this, accessory, 1));
-        break;
-      }
-      case "Aux 2": {
-        this.deviceObjects.push(new OtherAccessory(this, accessory, 2));
         break;
       }
       default: {

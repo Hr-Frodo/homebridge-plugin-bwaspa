@@ -1,13 +1,19 @@
 {
   "pluginAlias": "Balboa-Spa",
   "pluginType": "platform",
-  "headerDisplay": "This plugin works with Balboa-Spa wifi modules. Each pump, lights, etc are exposed HomeKit as separate accessories. In most situations, if you're fine with the defaults, the configuration is automatic. Else you can give your Spa a name below, and modify other settings...",
+  "headerDisplay": "This plugin works with Balboa ControlMySpa Wifi Module and the Balboa ControlMySpa Cloud. Each pump, lights, etc are exposed HomeKit as separate accessories. In most situations, if you're fine with the defaults, the configuration is automatic. Else you can give your Spa a name below, and modify other settings...",
   "singular": true,
   "layout": [
     {
       "items": [
         "autoCreateAccessories",
         "name"
+      ]
+    },
+    {
+      "items": [
+        "username",
+        "password"
       ]
     },
     {
@@ -19,11 +25,6 @@
         "devices[].name",
         "devices[].deviceType"
       ]
-    },
-    {
-      "items": [
-        "host"
-      ]
     }
   ],
   "schema": {
@@ -33,7 +34,7 @@
         "title": "Name",
         "type": "string",
         "required": true,
-        "default": "Spa"
+        "default": "ControlMySpa"
       },
       "autoCreateAccessories": {
         "title": "Automatically Create All Spa Controls as Accessories",
@@ -41,12 +42,18 @@
         "default": true,
         "required": true
       },
-      "host": {
-        "title": "Spa IP Address",
+      "username": {
+        "title": "ControlMySpa user name",
         "type": "string",
-        "placeholder": "192.168.1.151 (plugin will attempt to discover automatically if blank)",
-        "required": false,
-        "format": "hostname"
+        "placeholder": "controlmyspa@balboa.com",
+        "required": true,
+        "format": "email"
+      },
+      "password": {
+        "title": "ControlMySpa password",
+        "type": "string",
+        "placeholder": "password",
+        "required": true
       },
       "devices": {
         "title": "Manually Created Accessories",
